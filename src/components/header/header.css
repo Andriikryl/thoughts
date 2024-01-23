@@ -1,0 +1,28 @@
+.header{
+    border-bottom: 1px solid #d90429;
+    padding-block: 10px;
+}
+.list{
+    display: flex;
+    padding-block-start: 0px;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item__link{
+    color:  #ffd60a;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 500ms ease-in-out;
+}
+
+.item__link:hover{
+    color: #d90429;
+}

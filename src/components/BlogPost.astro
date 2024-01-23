@@ -1,0 +1,33 @@
+---
+const { title, url } = Astro.props;
+---
+
+<li class="item"><a class="link" href={url}>{title}</a></li>
+
+<style>
+  .link {
+    display: block;
+    padding: 10px;
+    color: inherit;
+    font-feature-settings:
+      "clig" off,
+      "liga" off;
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px; /* 144.444% */
+    letter-spacing: -0.25px;
+  }
+  .item {
+    color: #ffff;
+    border-bottom: 1px solid #ffd60a;
+    padding-block-end: 10px;
+    transition: all 500ms ease-in-out;
+  }
+
+  .item:hover {
+    color: black;
+    background-color: #ffff;
+  }
+</style>

@@ -1,5 +1,4 @@
 {
-  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -12,11 +11,16 @@
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@astrojs/react": "^3.0.9",
+    "@astrojs/rss": "^4.0.3",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.2.2",
+    "framer-motion": "^11.0.1",
+    "is-hotkey": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-focus-lock": "^2.9.6",
+    "react-remove-scroll": "^2.5.7",
     "typescript": "^5.3.3"
   }
 }

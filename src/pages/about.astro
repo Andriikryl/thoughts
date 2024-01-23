@@ -1,2 +1,9 @@
-<h1>asd</h1>
-<a href="/"> back</a>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "about";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My about</h2>
+</BaseLayout>

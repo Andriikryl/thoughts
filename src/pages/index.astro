@@ -1,18 +1,40 @@
 ---
-import Header from "../components/Header";
+import { Container } from "../components/container/Container";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Line from "../components/line/Line";
+const pageTitle = "home";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Header />
-    <h1>Astro</h1>
-    <a href="/about/">about</a>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <Container>
+    <h2 class="tilte">Thoughts</h2>
+    <div class="image__box">
+      <img width="300px" src="/images/hero.jpeg" alt="image" />
+    </div>
+    <Line />
+  </Container>
+</BaseLayout>
+
+<style>
+  .tilte {
+    padding-block: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-feature-settings:
+      "clig" off,
+      "liga" off;
+    font-family: "Helvetica Neue";
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.25px;
+    text-transform: uppercase;
+  }
+
+  .image__box {
+    max-width: 300px;
+    margin-inline: auto;
+    margin-block-end: 50px;
+  }
+</style>
