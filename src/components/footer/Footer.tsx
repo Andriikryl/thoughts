@@ -1,12 +1,13 @@
 import React from "react";
-import { Container } from "./container/Container";
+import { Container } from "../container/Container";
+import "./footer.css"
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <Container>
         <div>
-          <p>end</p>
+          <p className="footer__title">end</p>
         </div>
       </Container>
     </footer>
