@@ -4,6 +4,20 @@ import InfiniteString from "../components/infiniteString/InfiniteString";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Line from "../components/line/Line";
 const pageTitle = "home";
+const poems = [
+  "I knew a simple soldier boy",
+  "Who grinned at life in empty joy,",
+  "Slept soundly through the lonesome dark",
+  "And whistled early with the lark.",
+  "In winter trenches, cowed and glum",
+  "With crumps and lice and lack of rum,",
+  "He put a bullet through his brain.",
+  "No one spoke of him again.",
+  "You smug-faced crowds with kindling eye",
+  "Who cheer when soldier lads march by,",
+  "Sneak home and pray you’ll never know",
+  "The hell where youth and laughter go.",
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -13,12 +27,30 @@ const pageTitle = "home";
     <div class="image__box">
       <img width="300px" src="/images/hero.jpeg" alt="image" />
     </div>
-    <Line />
+    <ul role="list" class="list">
+      {poems.map((poem) => <li class="list__item">{poem}</li>)}
+    </ul>
   </Container>
 </BaseLayout>
 
 <style>
+  .list {
+    padding-inline-start: 0px;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+  .list__item {
+    text-wrap: balance;
+    color: var(--white, #fff);
+    font-family: "Patrick Hand";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+  }
   .tilte {
+    margin-inline-end: 90px;
     padding-block: 30px;
     text-align: center;
     color: #ffffff;
