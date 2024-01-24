@@ -1,0 +1,73 @@
+---
+
+---
+
+<div class="about">
+  <div class="about__image">
+    <img src="/images/hero-two.jpeg" alt="logo" />
+  </div>
+  <h1 class="about__title">What I do!</h1>
+  <p class="about__description">
+    Mario Martin's love for storytelling originated as a young boy when he felt
+    inspired to tell stories through writing. At eighteen he shot his first
+    film, “Checkmate.” That was the birthing of his passion for film-making and
+    screenwriting.
+  </p>
+  <p class="about__description">
+    Early on he honed his craft at the Maine Media Workshops and Boston Film &
+    Video Foundation. Mario has attended many screenwriting boot-camps, worked
+    with multiple coverage companies and many screenwriters.
+  </p>
+  <a class="about__link" href="/about/">EXPLORE ME</a>
+</div>
+
+<style>
+  .about {
+    max-width: 300px;
+  }
+  .about__image {
+    margin-block-end: 25px;
+  }
+  .about__title {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 150% */
+    margin-block-end: 36px;
+  }
+  .about__description {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    margin-block-end: 20px;
+  }
+  .about__link {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about__link::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 8px;
+    background-image: url("/images/Icon-rigth.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    /* background: var(--Neutral-Light-Grey, #f4f4f4);
+    padding: 8px; */
+  }
+</style>

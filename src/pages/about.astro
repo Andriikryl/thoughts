@@ -1,9 +1,38 @@
 ---
+import { Container } from "../components/container/Container";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "about";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My about</h2>
+  <section class="about">
+    <Container>
+      <div>
+        <h1 class="title">about me</h1>
+        <p class="description">)))</p>
+      </div>
+    </Container>
+  </section>
 </BaseLayout>
+
+<style>
+  .about {
+    height: 100dvh;
+  }
+  .title {
+    margin-block-start: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 150% */
+    margin-block-end: 20px;
+  }
+  .description {
+    text-align: center;
+  }
+</style>

@@ -1,5 +1,5 @@
 .header{
-    border-bottom: 1px solid #d90429;
+    border-bottom: 2px solid var(--Main-Primary-3, #FFF300);
     padding-block: 10px;
 }
 .list{
@@ -11,18 +11,16 @@
 }
 
 .item__link{
-    color:  #ffd60a;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: "Helvetica Neue";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px; /* 114.286% */
-    letter-spacing: 1.5px;
     text-transform: uppercase;
-    transition: all 500ms ease-in-out;
+    color: var(--Neutral-Dark-Grey, #777);
+    font-family: "Roboto Mono";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
 }
 
 .item__link:hover{
     color: #d90429;
+    border-bottom: 2px solid #777;
 }

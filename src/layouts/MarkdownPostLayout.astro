@@ -6,86 +6,87 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <Container>
-    <div class="tags">
-      {
-        frontmatter.tags.map((tag: any) => (
-          <p class="tag">
-            <a href={`/tags/${tag}`}>{tag}</a>
-          </p>
-        ))
-      }
+    <div class="box">
+      <div class="tags">
+        {
+          frontmatter.tags.map((tag: any) => (
+            <p class="tag">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </p>
+          ))
+        }
+      </div>
+      <h1 class="title">{frontmatter.title}</h1>
+      <p class="date">{frontmatter.pubDate.slice(0, 10)}</p>
+      <p class="description"><em>{frontmatter.description}</em></p>
+      <p class="text">{frontmatter.text}</p>
+      <slot />
     </div>
-    <h1 class="title">{frontmatter.title}</h1>
-    <p class="date">{frontmatter.pubDate.slice(0, 10)}</p>
-    <p class="description"><em>{frontmatter.description}</em></p>
-    <p class="text">{frontmatter.text}</p>
-    <slot />
   </Container>
 </BaseLayout>
 <style>
+  .box {
+    min-height: 100dvh;
+  }
   .title {
-    padding-block: 30px;
-    text-align: left;
-    color: #ffffff;
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-family: "Helvetica Neue";
-    font-size: 34px;
+    padding-block: 20px;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    line-height: 32px; /* 133.333% */
-    letter-spacing: -0.25px;
+    line-height: 36px; /* 150% */
   }
   .date {
-    color: #ffff;
-    font-family: "Patrick Hand";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: 0.18px;
-    margin-block-end: 10px;
-  }
-  .description {
-    color: var(--white, #fff);
-    font-family: "Patrick Hand";
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.32px;
+    line-height: 32px; /* 200% */
     margin-block-end: 10px;
   }
-  a {
-    color: #00539f;
+  .description {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 32px; /* 200% */
+    margin-block-end: 20px;
   }
 
   .text {
-    padding: 15px;
-    border: 1px solid #fcc300;
-    max-width: 600px;
-    color: var(--white, #fff);
-    font-family: "Patrick Hand";
-    font-size: 30px;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 19px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.32px;
+    font-weight: 700;
+    line-height: 32px; /* 200% */
+  }
+  .text::first-letter {
+    color: red;
+    font-size: 30px;
   }
 
   .tags {
     margin-block-start: 10px;
     display: flex;
+    gap: 10px;
     flex-wrap: wrap;
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
+    display: block;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 22px;
+    padding: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    border-radius: 3px;
+    background: var(--Neutral-Light-Grey, #f4f4f4);
   }
 </style>

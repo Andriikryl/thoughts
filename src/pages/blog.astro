@@ -3,6 +3,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
 import { Container } from "../components/container/Container";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
+import About from "../components/About.astro";
 const pageTitle = "blog";
 const { title, url } = Astro.props;
 ---
@@ -10,49 +11,100 @@ const { title, url } = Astro.props;
 <BaseLayout pageTitle={pageTitle}>
   <section>
     <Container>
-      <h2 class="title">My words</h2>
-      <p>This is where I will post about my journey learning Astro.</p>
-      <div class="image__box">
-        <img width="300px" src="/images/blog.jpeg" alt="image" />
+      <div class="wrapper">
+        <About />
+        <div class="blog__content">
+          <h1 class="blog__title">Recent Posts</h1>
+          <ul class="blog__list" role="list">
+            {
+              allPosts.map((post) => (
+                <li class="list__item">
+                  <a href={post.url}>
+                    <p class="date">{post.frontmatter.pubDate.slice(0, 10)}</p>
+                    <div class="flex__group">
+                      <h3 class="item__title">{post.frontmatter.title}</h3>
+                      <div class="tags__group">
+                        {post.frontmatter.tags.map((tag: string) => {
+                          return <span class="tag">{tag}</span>;
+                        })}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
-      <ul class="blog__list" role="list">
-        {
-          allPosts.map((post) => (
-            <BlogPost url={post.url} title={post.frontmatter.title} />
-          ))
-        }
-      </ul>
     </Container>
   </section>
 </BaseLayout>
 
 <style>
-  .title {
-    padding-block: 30px;
-    text-align: center;
-    color: #ffffff;
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-family: "Helvetica Neue";
-    font-size: 54px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32px; /* 133.333% */
-    letter-spacing: -0.25px;
-    text-transform: uppercase;
+  .wrapper {
+    padding-block: 50px;
+    display: flex;
+    gap: 40px;
   }
-  .image__box {
-    max-width: 300px;
-    margin-inline: auto;
-    margin-block-end: 50px;
+  .blog__content {
+    width: 100%;
+  }
+  .blog__title {
+    color: #474747;
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 150% */
+    border-bottom: 2px solid #dfdfdf;
+    padding-block-end: 10px;
   }
   .blog__list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     padding-inline-start: 0px;
-    border: 1px solid #ffff;
-    padding: 20px;
+  }
+  .date {
+    color: var(--Neutral-Dark-Grey, #777);
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    margin-block-end: 24px;
+  }
+  .list__item {
+    padding-block-end: 50px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .flex__group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .item__title {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 147.368% */
+  }
+  .tags__group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .tag {
+    display: block;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 22px;
+    padding: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    border-radius: 3px;
+    background: var(--Neutral-Light-Grey, #f4f4f4);
   }
 </style>

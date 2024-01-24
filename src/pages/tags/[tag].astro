@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import type { GetStaticPaths } from "astro";
 import BlogPost from "../../components/BlogPost.astro";
+import { Container } from "../../components/container/Container";
 
 type Post = {
   url: string;
@@ -42,12 +43,94 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {
-      posts.map((post: any) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
-      ))
-    }
-  </ul>
+  <section class="tag__section">
+    <Container>
+      <h1 class="title">Posts tagged with {tag}</h1>
+      <ul role="list" class="list">
+        {
+          posts.map((post: any) => (
+            <li class="list__item">
+              <a href={post.url}>
+                <p class="date">{post.frontmatter.pubDate.slice(0, 10)}</p>
+                <div class="flex__group">
+                  <h3 class="item__title">{post.frontmatter.title}</h3>
+                  <div class="tags__group">
+                    {post.frontmatter.tags.map((tag: string) => {
+                      return <span class="tag">{tag}</span>;
+                    })}
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </section>
 </BaseLayout>
+
+<style>
+  .list {
+    width: 100%;
+    padding-inline-start: 0px;
+  }
+  .tag__section {
+    padding-block: 50px;
+    min-height: 100dvh;
+  }
+  .title {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 150% */
+    margin-block-end: 20px;
+  }
+  .date {
+    color: var(--Neutral-Dark-Grey, #777);
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    margin-block-end: 24px;
+  }
+  .list__item {
+    width: 100%;
+    padding-block-end: 50px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .flex__group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .item__title {
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 147.368% */
+  }
+  .tags__group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .tag {
+    display: block;
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
+    font-size: 22px;
+    padding: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    border-radius: 3px;
+    background: var(--Neutral-Light-Grey, #f4f4f4);
+  }
+</style>

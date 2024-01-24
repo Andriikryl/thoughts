@@ -3,6 +3,7 @@ import { Container } from "../components/container/Container";
 import InfiniteString from "../components/infiniteString/InfiniteString";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Line from "../components/line/Line";
+import About from "../components/About.astro";
 const pageTitle = "home";
 const poems = [
   "I knew a simple soldier boy",
@@ -22,54 +23,55 @@ const poems = [
 
 <BaseLayout pageTitle={pageTitle}>
   <Container>
-    <InfiniteString />
-    <h2 class="tilte">Thoughts</h2>
-    <div class="image__box">
-      <img width="300px" src="/images/hero.jpeg" alt="image" />
+    <div class="wrapper">
+      <About />
+      <div class="content">
+        <div class="image__box | box-one">
+          <img src="/images/blog.jpeg" alt="image" />
+        </div>
+        <ul role="list" class="list">
+          {poems.map((poem) => <li class="list__item">{poem}</li>)}
+        </ul>
+        <div class="image__box">
+          <img src="/images/hero.jpeg" alt="image" />
+        </div>
+      </div>
     </div>
-    <ul role="list" class="list">
-      {poems.map((poem) => <li class="list__item">{poem}</li>)}
-    </ul>
   </Container>
 </BaseLayout>
 
 <style>
+  .wrapper {
+    padding-block: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .image__box {
+    max-width: 300px;
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .box-one {
+    align-self: self-end;
+  }
   .list {
     padding-inline-start: 0px;
-    max-width: 400px;
-    margin-inline: auto;
+    max-width: 300px;
   }
   .list__item {
-    text-wrap: balance;
-    color: var(--white, #fff);
-    font-family: "Patrick Hand";
+    color: var(--Main-Primary-2, #474747);
+    font-family: "Roboto Mono";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.32px;
+    line-height: 32px; /* 200% */
   }
-  .tilte {
-    margin-inline-end: 90px;
-    padding-block: 30px;
-    text-align: center;
-    color: #ffffff;
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-family: "Helvetica Neue";
-    font-size: 54px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 32px; /* 133.333% */
-    letter-spacing: -0.25px;
-    text-transform: uppercase;
-  }
-
-  .image__box {
-    max-width: 300px;
-    margin-inline: auto;
-    margin-block-end: 50px;
+  .list__item:nth-child(1)::first-letter {
+    color: red;
+    font-size: 30px;
   }
 </style>
-../components/InfiniteString ../components/infiniteString/InfiniteString
