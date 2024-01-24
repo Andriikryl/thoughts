@@ -1,5 +1,6 @@
 ---
 import { Container } from "../components/container/Container";
+import InfiniteString from "../components/infiniteString/InfiniteString";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Line from "../components/line/Line";
 const pageTitle = "home";
@@ -7,6 +8,7 @@ const pageTitle = "home";
 
 <BaseLayout pageTitle={pageTitle}>
   <Container>
+    <InfiniteString />
     <h2 class="tilte">Thoughts</h2>
     <div class="image__box">
       <img width="300px" src="/images/hero.jpeg" alt="image" />
@@ -38,3 +40,4 @@ const pageTitle = "home";
     margin-block-end: 50px;
   }
 </style>
+../components/InfiniteString ../components/infiniteString/InfiniteString
